@@ -6,4 +6,8 @@
 
  public class Router {
  
+	public static void main(String[] theArgs) {
+		Entry test = new Entry();
+		System.out.println(test);
+	}
  }
