@@ -30,6 +30,10 @@
 		return destinationIP;
 	}
 
+	public void setSequenceNum(int theNum) {
+		sequenceNum = theNum;
+	}
+
 /*	public InetAddress getDestination() {
 		return destinationIP;
 	}*/

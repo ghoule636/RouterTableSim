@@ -7,7 +7,7 @@
  public class Router {
  
 	public static void main(String[] theArgs) {
-		Entry test = new Entry();
+		RoutingTable test = new RoutingTable();
 		System.out.println(test);
 	}
  }
