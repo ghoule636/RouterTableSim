@@ -22,7 +22,7 @@
 
 	public Entry() {
 		//destinationIP = InetAddress.getByAddress(new byte[]{127, 0, 0, 1});
-		destinationIP = "127.0.0.1";
+		destinationIP = "127.0.0.1/32";
 		hops = 0;
 		portNum = 0;
 		lastUpdate = new Date();
@@ -42,7 +42,7 @@
 		reachable = isReachable;
 	}
 
-	public String getDestination() {
+	public String getIP() {
 		return destinationIP;
 	}
 
