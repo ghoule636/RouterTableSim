@@ -8,13 +8,17 @@
  import java.net.*;
 
  public class Entry {
+	
+	//A static value so each new Entry gets an individual sequenceNum
+	private static int sequenceCount = 0;
+	
 	//InetAddress destinationIP; // InetAddress seems to be much more complicated than what we need.
-	String destinationIP; // Using string to store ip for now.
-	int hops;
-	int portNum;
-	Date lastUpdate;
-	int sequenceNum;
-	boolean reachable;
+	private String destinationIP; // Using string to store ip for now.
+	private int hops;
+	private int portNum;
+	private Date lastUpdate;
+	private int sequenceNum;
+	private boolean reachable;
 
 	public Entry() {
 		//destinationIP = InetAddress.getByAddress(new byte[]{127, 0, 0, 1});
@@ -22,8 +26,20 @@
 		hops = 0;
 		portNum = 0;
 		lastUpdate = new Date();
-		sequenceNum = 0;
+		sequenceCount++;
+		sequenceNum = sequenceCount;
 		reachable = true;
+	}
+	
+	public Entry(String theDest_IP, int theHops, int thePortNum, Date theLastUpdate, boolean isReachable) {
+		//destinationIP = InetAddress.getByAddress(new byte[]{127, 0, 0, 1});
+		destinationIP = theDest_IP;
+		hops = theHops;
+		portNum = thePortNum;
+		lastUpdate = theLastUpdate;
+		sequenceCount++;
+		sequenceNum = sequenceCount;
+		reachable = isReachable;
 	}
 
 	public String getDestination() {

@@ -5,9 +5,10 @@
  */
 
  public class Router {
- 
-	public static void main(String[] theArgs) {
-		RoutingTable test = new RoutingTable();
-		System.out.println(test);
+	 private RoutingTable myRT;
+
+	public Router() {
+		myRT = new RoutingTable();
+		System.out.println(myRT);
 	}
  }
