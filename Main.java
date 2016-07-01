@@ -7,7 +7,7 @@ public class Main {
 		System.out.println(routerA);
 		
 		routerA.recieveNextPacket();
-		
+		routerA.send();
 //		while(again == 'y' || again == 'Y') {
 //			routerA.recieveNextPacket();
 //			routerA.updateAndSend();

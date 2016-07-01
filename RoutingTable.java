@@ -47,10 +47,18 @@
 	 * Returns the index of the best route from the routing table
 	 * @return index  of the best route returns -1 if no route
 	 */
-	public int findBestRoute(String IP) {
+	public String findBestRoute(String IP) {
+		Collections.sort(entries);
+		for(int i = 0; i < entries.size(); i++) {
+			checkForMatch(IP, entries.get(i));
+		}
 		
-		int index = 0;
-		return index;
+		return "";
+	}
+
+	private boolean checkForMatch(String iP, Entry entry) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 //	public String toBinary(String IP) {
@@ -65,6 +73,7 @@
 //		return binaryRep;
 //	}
   
+
 
 	public void setUpInitialTable(int size) {
 		entries.add(new Entry());
@@ -82,11 +91,12 @@
 		Random rand = new Random();
 		String destIP = generateRandomIP();
 		String nextRouterIP = generateRandomIP();
+		int prefix = rand.nextInt(11) + 16;
 		int hops = rand.nextInt(10);
 		int portNum = rand.nextInt(10);
 		Date time = new Date();
 		boolean reachable = true;
-		return new Entry(destIP, nextRouterIP, hops, portNum, time, reachable);
+		return new Entry(destIP, nextRouterIP, prefix, hops, portNum, time, reachable);
 	}
 	
 	

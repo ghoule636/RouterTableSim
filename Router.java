@@ -24,8 +24,9 @@ import java.util.Random;
 	 * This is called when incomminIP was just changed. This method updates
 	 * the table and sends the Packet the he appropriate interface
 	 */
-	public void updateAndSend() {
-		int route = myRT.findBestRoute(incommingIP);
+	public void send() {
+		String route = myRT.findBestRoute(incommingIP);
+		
 		sendToInterface(route);
 	}
 	
@@ -45,14 +46,14 @@ import java.util.Random;
 	 * Updates our routing table from local routers tables
 	 */
 	public void updateRoutingTable() {
-
+		
 	}
 	
 	/**
 	 * "Sends" the incommingIP packet to a single interface
 	 */
-	private void sendToInterface(int portNum) {
-		System.out.println("Packet : " + incommingIP + " sent!");
+	private void sendToInterface(String nextRouterIP) {
+		System.out.println("Packet Sent to : " + nextRouterIP + "!");
 		incommingIP = null;
 	}
 	
