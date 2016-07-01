@@ -65,8 +65,10 @@
 
 	@Override
 	public String toString() {
-		return "SN: " + sequenceNum + " Dest-IP: " + destinationIP.toString() + " nextRouterIP: " + nextRouterIP.toString() 
-				+ "prefix: " + prefix + " Hops: " + hops + " Last Update: " + lastUpdate.toString() + " Reachable: " + reachable;
+		return String.format("SN: %2d Dest-IP: %16s/%-2d nextRouterIP: %16s Hops: %2d Last Update %20s Reachable: %s",
+							 sequenceNum, destinationIP.toString(), prefix, nextRouterIP.toString(), hops, lastUpdate.toString(), String.valueOf(reachable));
+		//return "SN: " + sequenceNum + " Dest-IP: " + destinationIP.toString() + " nextRouterIP: " + nextRouterIP.toString() 
+		//		+ "/" + prefix + " Hops: " + hops + " Last Update: " + lastUpdate.toString() + " Reachable: " + reachable;
 	}
 
 	@Override
