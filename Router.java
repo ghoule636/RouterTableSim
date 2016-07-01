@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -9,21 +11,23 @@ import java.util.Random;
  public class Router {
 	 private String incommingIP;
 	 private RoutingTable myRT;
-	 private Router[] interfaces;
+	 private List<Entry> interfaces;
 
 	public Router() {
 		incommingIP = null;
 		myRT = new RoutingTable();
-		System.out.println(myRT);
+		myRT.setUpInitialTable(10);
+		interfaces = myRT.getAllEntries();
 	}
 	
 	/**
 	 * This is called when incomminIP was just changed. This method updates
 	 * the table and sends the Packet the he appropriate interface
 	 */
-	public void updateAndSend() {
-		// TODO Auto-generated method stub
+	public void send() {
+		String route = myRT.findBestRoute(incommingIP);
 		
+		sendToInterface(route);
 	}
 	
 	/**
@@ -36,22 +40,25 @@ import java.util.Random;
 			ip += "."  + (rand.nextInt(254) + 1);
 		}
 		incommingIP = ip.substring(1);
-		System.out.println(incommingIP);
+	}
+	
+	/**
+	 * Updates our routing table from local routers tables
+	 */
+	public void updateRoutingTable() {
+		
 	}
 	
 	/**
 	 * "Sends" the incommingIP packet to a single interface
 	 */
-	private void sendToInterface(int portNum) {
-		//Send packet to next Router
+	private void sendToInterface(String nextRouterIP) {
+		System.out.println("Packet Sent to : " + nextRouterIP + "!");
 		incommingIP = null;
 	}
 	
-	/**
-	 * Sends the incommingIP to all interfaces
-	 */
-	private void broadcast() {
-		//send packet to all interfaces(routers)
+	public String toString(){
+		return myRT.toString();
 	}
 
  }
