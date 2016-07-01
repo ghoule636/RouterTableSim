@@ -11,11 +11,6 @@
 
 	public RoutingTable() {
 		entries = new ArrayList<Entry>();
-//		for (int i = 0; i < 10; i++) {
-//			Entry temp = new Entry();
-//			temp.setSequenceNum(i);
-//			entries.add(temp);
-//		}
 	}
 
 	/**
@@ -23,15 +18,84 @@
 	 * @param theEntry this is the entry that is returned form routers giving us their info
 	 * @return portNum returns the port number of the interface to send packet to
 	 */
-	public int update(Entry theEntry) {
-		return 0;
+	public void update(Entry theEntry) {
+		System.out.println("Entry From New Router: " + theEntry.getIP() + "/" + theEntry.getPrefix());
+		entries.add(theEntry);
+		int size = entries.size();
+		int smallestDifference = Integer.MAX_VALUE;
+		Entry entryA = null;
+		Entry entryB = null;
+		for(int i = 0; i < size; i++) {
+			for(int j = 0; j < size; j++) {
+				if(i != j) {
+					boolean match = matchingIPLength(entries.get(i), entries.get(j));
+					if(match && Math.abs(entries.get(i).getPrefix() - entries.get(j).getPrefix()) < smallestDifference &&
+						!entries.get(i).getIP().equals("0.0.0.0") && !entries.get(j).getIP().equals("0.0.0.0")) {
+						entryA = entries.get(i);
+						entryB = entries.get(j);
+						smallestDifference = Math.abs(entries.get(i).getPrefix() - entries.get(j).getPrefix());
+					}
+				}
+			}
+		}
+		if(entryA != null || entryB != null) {
+			System.out.println("Aggregating: " + entryA.getIP() + "/" + entryA.getPrefix() + " and " + entryB.getIP() + "/" + entryB.getPrefix());
+			
+			if(entryA.getPrefix() - entryB.getPrefix() > 0) {
+				entries.remove(entryA);
+			}
+			else {
+				entries.remove(entryB);
+			}
+		}
+		else {
+			entries.remove(10);
+			System.out.println("Router Updated!");
+		}
+	}
+
+	private boolean matchingIPLength(Entry entry, Entry entry2) {
+		boolean match = true;
+		int[] result = new int[4];
+		String[] firstIP = entry.getIP().split("\\.");
+		String[] secondIP = entry2.getIP().split("\\.");
+		int mask = Math.min(entry.getPrefix(), entry.getPrefix());
+		int maskOctets = mask/8;
+		int maskRemainder = mask%8;
+		int i;
+		for(i = 0; i < maskOctets; i++) {
+			if(!firstIP[i].equals(secondIP[i])) {
+				match = false;
+			}
+		}
+		if(maskRemainder != 0 && match) {
+			int highestBit = 128;
+			int maskDec = 0;
+			while(maskRemainder > 0) {
+				maskDec += highestBit;
+				highestBit /= 2;
+				maskRemainder--;
+			}
+			if((Integer.parseInt(firstIP[i], 10) & maskDec) != (Integer.parseInt(secondIP[i], 10) & maskDec)) {
+				match = false;
+			}
+		}
+		return match;
 	}
 
 	public List<Entry> getAllEntries() {
 		return entries;
 	}
+
+	public void add(Entry entry) {
+		entries.add(entry);
+	}
 	
-	public Entry getEntry(String theIP) {
+	public int getSize() {
+		return entries.size();
+	}
+	
+	public Entry getEntry(int index) {
 		return entries.get(0);
 	}
 
@@ -52,13 +116,36 @@
 		for(int i = 0; i < entries.size(); i++) {
 			checkForMatch(IP, entries.get(i));
 		}
-		
 		return "";
 	}
 
-	private boolean checkForMatch(String iP, Entry entry) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean checkForMatch(String iP, Entry entry) {
+		boolean match = true;
+		int[] result = new int[4];
+		String[] destIPArray = iP.split("\\.");
+		String[] tableIPArray = entry.getIP().split("\\.");
+		int mask = entry.getPrefix();
+		int maskOctets = mask/8;
+		int maskRemainder = mask%8;
+		int i;
+		for(i = 0; i < maskOctets; i++) {
+			if(!destIPArray[i].equals(tableIPArray[i])) {
+				match = false;
+			}
+		}
+		if(maskRemainder != 0 && match) {
+			int highestBit = 128;
+			int maskDec = 0;
+			while(maskRemainder > 0) {
+				maskDec += highestBit;
+				highestBit /= 2;
+				maskRemainder--;
+			}
+			if((Integer.parseInt(destIPArray[i], 10) & maskDec) != (Integer.parseInt(tableIPArray[i], 10) & maskDec)) {
+				match = false;
+			}
+		}
+		return match;
 	}
 	
 //	public String toBinary(String IP) {
@@ -87,7 +174,7 @@
 	 * @param theEntry this is the entry that is returned form routers giving us their info
 	 * @return portNum returns the port number of the interface to send packet to
 	 */
-	private Entry randomEntry() {
+	public Entry randomEntry() {
 		Random rand = new Random();
 		String destIP = generateRandomIP();
 		String nextRouterIP = generateRandomIP();

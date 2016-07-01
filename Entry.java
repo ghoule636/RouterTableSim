@@ -56,8 +56,8 @@
 		sequenceNum = theNum;
 	}
 
-	public int getPortNumber() {
-		return 0;
+	public int getPrefix() {
+		return prefix;
 	}
 /*	public InetAddress getDestination() {
 		return destinationIP;

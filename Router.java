@@ -26,7 +26,6 @@ import java.util.Random;
 	 */
 	public void send() {
 		String route = myRT.findBestRoute(incommingIP);
-		
 		sendToInterface(route);
 	}
 	
@@ -46,7 +45,9 @@ import java.util.Random;
 	 * Updates our routing table from local routers tables
 	 */
 	public void updateRoutingTable() {
-		
+		RoutingTable updateFromOtherRouter = new RoutingTable();
+		Entry newEntry = updateFromOtherRouter.randomEntry();
+		myRT.update(newEntry);
 	}
 	
 	/**
