@@ -29,7 +29,7 @@ public class Main {
 			}
 			System.out.println(routerA);
 			getUpdate++;
-//			TimeUnit.SECONDS.sleep(1);
+			TimeUnit.SECONDS.sleep(1);
 		}
 	}
 

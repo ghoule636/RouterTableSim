@@ -8,6 +8,16 @@
 
  public class RoutingTable {
 	private List<Entry> entries;
+	private String[] pseudoRandomIPs  = {"194.13.88.94", "196.64.120.127", "198.84.111.54",
+										 "194.13.88.176", "196.64.120.174", "198.84.111.164",
+										 "194.13.88.36", "196.64.120.138", "198.84.111.185",
+										 "194.13.114.87", "196.64.76.193", "198.84.234.194",
+										 "194.13.114.12", "196.64.76.128", "198.84.234.147",
+										 "194.11.114.6", "196.64.76.196", "198.180.234.149",
+										 "194.11.214.5", "196.13.90.197", "198.180.234.250",
+										 "194.11.214.1", "196.13.09.127", "198.180.120.211",
+										 "194.11.214.233", "196.13.09.157", "198.180.120.214",
+										 "194.11.214.123", "196.13.09.111", "198.180.120.201"};
 
 	public RoutingTable() {
 		entries = new ArrayList<Entry>();
@@ -159,8 +169,6 @@
 //		System.out.println(binaryRep);
 //		return binaryRep;
 //	}
-  
-
 
 	public void setUpInitialTable(int size) {
 		entries.add(new Entry());
@@ -186,19 +194,24 @@
 		return new Entry(destIP, nextRouterIP, prefix, hops, portNum, time, reachable);
 	}
 	
-	
 	/**
-	 * Generates a Random IP address
+	 * Generates pseudo Random IP address
 	 */
 	public String generateRandomIP() {
 		Random rand = new Random();
-		String ip = "";
-		for(int i = 0; i < 4; i++) {
-			ip += "."  + (rand.nextInt(254) + 1);
-		}
-		return ip.substring(1);
+		int i = rand.nextInt(pseudoRandomIPs.length);
+		return pseudoRandomIPs[i];
 	}
+	
+//	/**
+//	 * Generates actual Random IP address
+//	 */
+//	public String generateRandomIP() {
+//		Random rand = new Random();
+//		String ip = "";
+//		for(int i = 0; i < 4; i++) {
+//			ip += "."  + (rand.nextInt(254) + 1);
+//		}
+//		return ip.substring(1);
+//	}
 }
- 
- 
- 
