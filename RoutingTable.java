@@ -7,7 +7,7 @@
  import java.util.*;
 
  public class RoutingTable {
-	List<Entry> entries;
+	private List<Entry> entries;
 
 	public RoutingTable() {
 		entries = new ArrayList<Entry>();
@@ -19,14 +19,18 @@
 	}
 
 	/**
-	 * 
+	 * Just takes the incomming entry and updates the table
 	 * @param theEntry this is the entry that is returned form routers giving us their info
 	 * @return portNum returns the port number of the interface to send packet to
 	 */
 	public int update(Entry theEntry) {
-
+		return 0;
 	}
 
+	public List<Entry> getAllEntries() {
+		return entries;
+	}
+	
 	public Entry getEntry(String theIP) {
 		return entries.get(0);
 	}
@@ -43,17 +47,61 @@
 	 * Returns the index of the best route from the routing table
 	 * @return index  of the best route returns -1 if no route
 	 */
-	private int findBestRoute(Entry theEntry) {
-		System.err.println("findBestRoute() in Routing Table Incomplete");
+	public int findBestRoute(String IP) {
+		
 		int index = 0;
 		return index;
 	}
 	
-	/**
-	 * Sends the IP to all ports, to see if any neighboring routers have it
-	 * @return index  of the best route returns -1 if no route
-	 */
-	private void broadcast(Entry theEntry) {
-		System.err.println("broadcast() in Routing Table Incomplete");
+//	public String toBinary(String IP) {
+//		System.out.println(IP);
+//		String[] tempIP = IP.split("\\.");
+//		System.out.println(tempIP.length);
+//		String binaryRep = "";
+//		for(int i = 0; i < tempIP.length; i++) {
+//			binaryRep += Integer.par
+//		}
+//		System.out.println(binaryRep);
+//		return binaryRep;
+//	}
+  
+
+	public void setUpInitialTable(int size) {
+		entries.add(new Entry());
+		for(int i = 0; i < size - 1; i++) {
+			entries.add(randomEntry());
+		}
 	}
-  }
+	
+	/**
+	 * Just takes the incomming entry and updates the table
+	 * @param theEntry this is the entry that is returned form routers giving us their info
+	 * @return portNum returns the port number of the interface to send packet to
+	 */
+	private Entry randomEntry() {
+		Random rand = new Random();
+		String destIP = generateRandomIP();
+		String nextRouterIP = generateRandomIP();
+		int hops = rand.nextInt(10);
+		int portNum = rand.nextInt(10);
+		Date time = new Date();
+		boolean reachable = true;
+		return new Entry(destIP, nextRouterIP, hops, portNum, time, reachable);
+	}
+	
+	
+	/**
+	 * Generates a Random IP address
+	 */
+	public String generateRandomIP() {
+		Random rand = new Random();
+		String ip = "";
+		for(int i = 0; i < 4; i++) {
+			ip += "."  + (rand.nextInt(254) + 1);
+		}
+		return ip.substring(1);
+	}
+}
+ 
+ 
+ 
