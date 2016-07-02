@@ -5,14 +5,12 @@
  */
 
  import java.util.*;
- import java.net.*;
 
  public class Entry implements Comparable<Entry> {
 	
 	//A static value so each new Entry gets an individual sequenceNum
 	private static int sequenceCount = 0;
 	
-	//InetAddress destinationIP; // InetAddress seems to be much more complicated than what we need.
 	private String destinationIP; // Using string to store ip for now.
 	private String nextRouterIP;
 	private int prefix;
@@ -23,7 +21,6 @@
 	private boolean reachable;
 
 	public Entry() {
-		//destinationIP = InetAddress.getByAddress(new byte[]{127, 0, 0, 1});
 		destinationIP = "0.0.0.0";
 		nextRouterIP = "123.123.123.123";
 		prefix = 0;
@@ -36,7 +33,6 @@
 	}
 	
 	public Entry(String theDest_IP, String theNextRouterIP, int thePrefix, int theHops, int thePortNum, Date theLastUpdate, boolean isReachable) {
-		//destinationIP = InetAddress.getByAddress(new byte[]{127, 0, 0, 1});
 		destinationIP = theDest_IP;
 		nextRouterIP = theNextRouterIP;
 		prefix = thePrefix;
@@ -59,16 +55,11 @@
 	public int getPrefix() {
 		return prefix;
 	}
-/*	public InetAddress getDestination() {
-		return destinationIP;
-	}*/
 
 	@Override
 	public String toString() {
 		return String.format("SN: %2d Dest-IP: %16s/%-2d nextRouterIP: %16s Hops: %2d Last Update %20s Reachable: %s",
 							 sequenceNum, destinationIP.toString(), prefix, nextRouterIP.toString(), hops, lastUpdate.toString(), String.valueOf(reachable));
-		//return "SN: " + sequenceNum + " Dest-IP: " + destinationIP.toString() + " nextRouterIP: " + nextRouterIP.toString() 
-		//		+ "/" + prefix + " Hops: " + hops + " Last Update: " + lastUpdate.toString() + " Reachable: " + reachable;
 	}
 
 	@Override

@@ -1,10 +1,10 @@
-import java.util.concurrent.TimeUnit;
-
 /**
  * Routing Table Simulation
  * TCSS 430 Summer 2016
  * Group 5 Adam Marr, David Humphreys, Gabriel Houle
  */
+
+ import java.util.concurrent.TimeUnit;
 
 public class Main {
 
