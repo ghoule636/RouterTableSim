@@ -1,12 +1,12 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 /**
  * Routing Table Simulation
  * TCSS 430 Summer 2016
  * Group 5 Adam Marr, David Humphreys, Gabriel Houle
  */
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
  public class Router {
 	 private String incomingIP;
