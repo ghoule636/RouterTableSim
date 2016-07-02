@@ -8,7 +8,7 @@
 
  public class RoutingTable {
 	private List<Entry> entries;
-	private String[] pseudoRandomIPs  = {"194.13.88.94", "196.64.120.127", "198.84.111.54",
+	public String[] pseudoRandomIPs  = {"194.13.88.94", "196.64.120.127", "198.84.111.54",
 										 "194.13.88.176", "196.64.120.174", "198.84.111.164",
 										 "194.13.88.36", "196.64.120.138", "198.84.111.185",
 										 "194.13.114.87", "196.64.76.193", "198.84.234.194",
@@ -24,7 +24,7 @@
 	}
 
 	/**
-	 * Just takes the incomming entry and updates the table
+	 * Takes the incoming entry and updates the table
 	 * @param theEntry this is the entry that is returned form routers giving us their info
 	 * @return portNum returns the port number of the interface to send packet to
 	 */
@@ -123,10 +123,13 @@
 	 */
 	public String findBestRoute(String IP) {
 		Collections.sort(entries);
-		for(int i = 0; i < entries.size(); i++) {
-			checkForMatch(IP, entries.get(i));
+        boolean isMatch = false;
+        int index = -1;
+		for(int i = 0; i < entries.size() && !isMatch; i++) {
+			isMatch = checkForMatch(IP, entries.get(i)); 
+            index++;
 		}
-		return "";
+		return entries.get(index).getIP();
 	}
 
 	public boolean checkForMatch(String iP, Entry entry) {
