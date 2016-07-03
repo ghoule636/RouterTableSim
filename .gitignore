@@ -4,3 +4,5 @@
 .project
 .classpath
 /Main.class
+.settings
+.externalToolBuilders

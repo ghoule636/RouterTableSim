@@ -25,7 +25,7 @@ import java.util.Random;
 	 * the table and sends the Packet the he appropriate interface
 	 */
 	public void send() {
-		String route = myRT.findBestRoute(incomingIP);
+		Entry route = myRT.findBestRoute(incomingIP);
 		sendToInterface(route);
 	}
 	
@@ -58,8 +58,9 @@ import java.util.Random;
 	/**
 	 * "Sends" the incomingIP packet to a single interface
 	 */
-	private void sendToInterface(String nextRouterIP) {
-		System.out.println("Packet Destined For: " + incomingIP + " Sent to : " + nextRouterIP + "!");
+	private void sendToInterface(Entry nextRouterEntry) {
+		System.out.println("Packet Destined For: " + incomingIP + " was sent to : " +
+					        nextRouterEntry.getIP() + "\\" + nextRouterEntry.getPrefix() + "!\n");
 		incomingIP = null;
 	}
 	

@@ -29,7 +29,7 @@
 	 * @return portNum returns the port number of the interface to send packet to
 	 */
 	public void update(Entry theEntry) {
-		System.out.println("Entry From New Router: " + theEntry.getIP() + "/" + theEntry.getPrefix());
+		System.out.println("UPDATE: Entry From Neighboring Router, " + theEntry.getIP() + "/" + theEntry.getPrefix() + "\n");
 		entries.add(theEntry);
 		int size = entries.size();
 		int smallestDifference = Integer.MAX_VALUE;
@@ -49,7 +49,7 @@
 			}
 		}
 		if(entryA != null || entryB != null) {
-			System.out.println("Aggregating: " + entryA.getIP() + "/" + entryA.getPrefix() + " and " + entryB.getIP() + "/" + entryB.getPrefix());
+			System.out.println("Aggregating: " + entryA.getIP() + "/" + entryA.getPrefix() + " and " + entryB.getIP() + "/" + entryB.getPrefix() + "\n");
 			
 			if(entryA.getPrefix() - entryB.getPrefix() > 0) {
 				entries.remove(entryA);
@@ -57,10 +57,11 @@
 			else {
 				entries.remove(entryB);
 			}
+			Collections.sort(entries);
 		}
 		else {
 			entries.remove(10);
-			System.out.println("Router Updated!");
+			//System.out.println("Router Updated!");
 		}
 	}
 
@@ -121,15 +122,17 @@
 	 * Returns the index of the best route from the routing table
 	 * @return index  of the best route returns -1 if no route
 	 */
-	public String findBestRoute(String IP) {
+	public Entry findBestRoute(String IP) {
 		Collections.sort(entries);
         boolean isMatch = false;
         int index = -1;
 		for(int i = 0; i < entries.size() && !isMatch; i++) {
 			isMatch = checkForMatch(IP, entries.get(i)); 
-            index++;
+            if(isMatch) {
+            	index = i;
+            }
 		}
-		return entries.get(index).getIP();
+		return entries.get(index);
 	}
 
 	public boolean checkForMatch(String iP, Entry entry) {
@@ -178,6 +181,7 @@
 		for(int i = 0; i < size - 1; i++) {
 			entries.add(randomEntry());
 		}
+		Collections.sort(entries);
 	}
 	
 	/**
@@ -189,7 +193,7 @@
 		Random rand = new Random();
 		String destIP = generateRandomIP();
 		String nextRouterIP = generateRandomIP();
-		int prefix = rand.nextInt(11) + 16;
+		int prefix = rand.nextInt(11) + 18;
 		int hops = rand.nextInt(10);
 		int portNum = rand.nextInt(10);
 		Date time = new Date();
