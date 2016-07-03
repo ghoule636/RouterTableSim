@@ -1,0 +1,192 @@
+
+  
+Routing Table Simulation
+TCSS 430 Summer 2016
+Group 5 Adam Marr, David Humphreys, Gabriel Houle
+
+EXAMPLE OUTPUT
+--------------
+
+CREATE ROUTER
+SN:  2 Dest-IP:    196.13.09.127/27 nextRouterIP:  198.180.234.250 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  3 Dest-IP:   194.11.214.233/27 nextRouterIP:   194.11.214.233 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  4 Dest-IP:    196.13.09.157/26 nextRouterIP:    198.84.111.54 Hops:  7 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN: 10 Dest-IP:  198.180.234.250/24 nextRouterIP:   194.11.214.233 Hops:  6 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  5 Dest-IP:   198.84.111.164/21 nextRouterIP:    194.13.114.12 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  6 Dest-IP:    196.13.09.157/20 nextRouterIP:   198.84.234.147 Hops:  4 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  7 Dest-IP:    194.13.114.87/19 nextRouterIP:   196.64.120.127 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  8 Dest-IP:   198.84.234.147/19 nextRouterIP:    194.13.114.87 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  9 Dest-IP:  198.180.234.149/19 nextRouterIP:  198.180.120.214 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  1 Dest-IP:          0.0.0.0/0  nextRouterIP:  123.123.123.123 Hops: 10 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+
+Packet Destined For: 196.13.09.127 was sent to : 196.13.09.127\27!
+
+SN:  2 Dest-IP:    196.13.09.127/27 nextRouterIP:  198.180.234.250 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  3 Dest-IP:   194.11.214.233/27 nextRouterIP:   194.11.214.233 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  4 Dest-IP:    196.13.09.157/26 nextRouterIP:    198.84.111.54 Hops:  7 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN: 10 Dest-IP:  198.180.234.250/24 nextRouterIP:   194.11.214.233 Hops:  6 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  5 Dest-IP:   198.84.111.164/21 nextRouterIP:    194.13.114.12 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  6 Dest-IP:    196.13.09.157/20 nextRouterIP:   198.84.234.147 Hops:  4 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  7 Dest-IP:    194.13.114.87/19 nextRouterIP:   196.64.120.127 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  8 Dest-IP:   198.84.234.147/19 nextRouterIP:    194.13.114.87 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  9 Dest-IP:  198.180.234.149/19 nextRouterIP:  198.180.120.214 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  1 Dest-IP:          0.0.0.0/0  nextRouterIP:  123.123.123.123 Hops: 10 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+
+Packet Destined For: 194.11.214.233 was sent to : 194.11.214.233\27!
+
+UPDATE: Entry From Neighboring Router, 194.13.114.12/24
+
+Aggregating: 198.180.234.250/24 and 198.180.234.149/19
+
+SN:  2 Dest-IP:    196.13.09.127/27 nextRouterIP:  198.180.234.250 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  3 Dest-IP:   194.11.214.233/27 nextRouterIP:   194.11.214.233 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  4 Dest-IP:    196.13.09.157/26 nextRouterIP:    198.84.111.54 Hops:  7 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN: 11 Dest-IP:    194.13.114.12/24 nextRouterIP:   198.84.234.194 Hops:  6 Last Update Sat Jul 02 18:13:36 PDT 2016 Reachable: true
+SN:  5 Dest-IP:   198.84.111.164/21 nextRouterIP:    194.13.114.12 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  6 Dest-IP:    196.13.09.157/20 nextRouterIP:   198.84.234.147 Hops:  4 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  7 Dest-IP:    194.13.114.87/19 nextRouterIP:   196.64.120.127 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  8 Dest-IP:   198.84.234.147/19 nextRouterIP:    194.13.114.87 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  9 Dest-IP:  198.180.234.149/19 nextRouterIP:  198.180.120.214 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  1 Dest-IP:          0.0.0.0/0  nextRouterIP:  123.123.123.123 Hops: 10 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+
+Packet Destined For: 73.80.101.154 was sent to : 0.0.0.0\0!
+
+SN:  2 Dest-IP:    196.13.09.127/27 nextRouterIP:  198.180.234.250 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  3 Dest-IP:   194.11.214.233/27 nextRouterIP:   194.11.214.233 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  4 Dest-IP:    196.13.09.157/26 nextRouterIP:    198.84.111.54 Hops:  7 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN: 11 Dest-IP:    194.13.114.12/24 nextRouterIP:   198.84.234.194 Hops:  6 Last Update Sat Jul 02 18:13:36 PDT 2016 Reachable: true
+SN:  5 Dest-IP:   198.84.111.164/21 nextRouterIP:    194.13.114.12 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  6 Dest-IP:    196.13.09.157/20 nextRouterIP:   198.84.234.147 Hops:  4 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  7 Dest-IP:    194.13.114.87/19 nextRouterIP:   196.64.120.127 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  8 Dest-IP:   198.84.234.147/19 nextRouterIP:    194.13.114.87 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  9 Dest-IP:  198.180.234.149/19 nextRouterIP:  198.180.120.214 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  1 Dest-IP:          0.0.0.0/0  nextRouterIP:  123.123.123.123 Hops: 10 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+
+Packet Destined For: 200.182.126.242 was sent to : 0.0.0.0\0!
+
+SN:  2 Dest-IP:    196.13.09.127/27 nextRouterIP:  198.180.234.250 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  3 Dest-IP:   194.11.214.233/27 nextRouterIP:   194.11.214.233 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  4 Dest-IP:    196.13.09.157/26 nextRouterIP:    198.84.111.54 Hops:  7 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN: 11 Dest-IP:    194.13.114.12/24 nextRouterIP:   198.84.234.194 Hops:  6 Last Update Sat Jul 02 18:13:36 PDT 2016 Reachable: true
+SN:  5 Dest-IP:   198.84.111.164/21 nextRouterIP:    194.13.114.12 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  6 Dest-IP:    196.13.09.157/20 nextRouterIP:   198.84.234.147 Hops:  4 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  7 Dest-IP:    194.13.114.87/19 nextRouterIP:   196.64.120.127 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  8 Dest-IP:   198.84.234.147/19 nextRouterIP:    194.13.114.87 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  9 Dest-IP:  198.180.234.149/19 nextRouterIP:  198.180.120.214 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  1 Dest-IP:          0.0.0.0/0  nextRouterIP:  123.123.123.123 Hops: 10 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+
+Packet Destined For: 56.126.45.99 was sent to : 0.0.0.0\0!
+
+UPDATE: Entry From Neighboring Router, 196.13.09.111/27
+
+Aggregating: 196.13.09.127/27 and 196.13.09.111/27
+
+SN:  2 Dest-IP:    196.13.09.127/27 nextRouterIP:  198.180.234.250 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  3 Dest-IP:   194.11.214.233/27 nextRouterIP:   194.11.214.233 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  4 Dest-IP:    196.13.09.157/26 nextRouterIP:    198.84.111.54 Hops:  7 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN: 11 Dest-IP:    194.13.114.12/24 nextRouterIP:   198.84.234.194 Hops:  6 Last Update Sat Jul 02 18:13:36 PDT 2016 Reachable: true
+SN:  5 Dest-IP:   198.84.111.164/21 nextRouterIP:    194.13.114.12 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  6 Dest-IP:    196.13.09.157/20 nextRouterIP:   198.84.234.147 Hops:  4 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  7 Dest-IP:    194.13.114.87/19 nextRouterIP:   196.64.120.127 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  8 Dest-IP:   198.84.234.147/19 nextRouterIP:    194.13.114.87 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  9 Dest-IP:  198.180.234.149/19 nextRouterIP:  198.180.120.214 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  1 Dest-IP:          0.0.0.0/0  nextRouterIP:  123.123.123.123 Hops: 10 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+
+Packet Destined For: 76.15.205.178 was sent to : 0.0.0.0\0!
+
+SN:  2 Dest-IP:    196.13.09.127/27 nextRouterIP:  198.180.234.250 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  3 Dest-IP:   194.11.214.233/27 nextRouterIP:   194.11.214.233 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  4 Dest-IP:    196.13.09.157/26 nextRouterIP:    198.84.111.54 Hops:  7 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN: 11 Dest-IP:    194.13.114.12/24 nextRouterIP:   198.84.234.194 Hops:  6 Last Update Sat Jul 02 18:13:36 PDT 2016 Reachable: true
+SN:  5 Dest-IP:   198.84.111.164/21 nextRouterIP:    194.13.114.12 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  6 Dest-IP:    196.13.09.157/20 nextRouterIP:   198.84.234.147 Hops:  4 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  7 Dest-IP:    194.13.114.87/19 nextRouterIP:   196.64.120.127 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  8 Dest-IP:   198.84.234.147/19 nextRouterIP:    194.13.114.87 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  9 Dest-IP:  198.180.234.149/19 nextRouterIP:  198.180.120.214 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  1 Dest-IP:          0.0.0.0/0  nextRouterIP:  123.123.123.123 Hops: 10 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+
+Packet Destined For: 198.180.120.211 was sent to : 0.0.0.0\0!
+
+SN:  2 Dest-IP:    196.13.09.127/27 nextRouterIP:  198.180.234.250 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  3 Dest-IP:   194.11.214.233/27 nextRouterIP:   194.11.214.233 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  4 Dest-IP:    196.13.09.157/26 nextRouterIP:    198.84.111.54 Hops:  7 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN: 11 Dest-IP:    194.13.114.12/24 nextRouterIP:   198.84.234.194 Hops:  6 Last Update Sat Jul 02 18:13:36 PDT 2016 Reachable: true
+SN:  5 Dest-IP:   198.84.111.164/21 nextRouterIP:    194.13.114.12 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  6 Dest-IP:    196.13.09.157/20 nextRouterIP:   198.84.234.147 Hops:  4 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  7 Dest-IP:    194.13.114.87/19 nextRouterIP:   196.64.120.127 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  8 Dest-IP:   198.84.234.147/19 nextRouterIP:    194.13.114.87 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  9 Dest-IP:  198.180.234.149/19 nextRouterIP:  198.180.120.214 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  1 Dest-IP:          0.0.0.0/0  nextRouterIP:  123.123.123.123 Hops: 10 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+
+Packet Destined For: 198.84.234.194 was sent to : 198.84.234.147\19!
+
+UPDATE: Entry From Neighboring Router, 198.84.234.194/28
+
+Aggregating: 194.13.114.12/24 and 194.13.114.87/19
+
+SN: 13 Dest-IP:   198.84.234.194/28 nextRouterIP:    194.13.88.176 Hops:  5 Last Update Sat Jul 02 18:13:42 PDT 2016 Reachable: true
+SN:  2 Dest-IP:    196.13.09.127/27 nextRouterIP:  198.180.234.250 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  3 Dest-IP:   194.11.214.233/27 nextRouterIP:   194.11.214.233 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  4 Dest-IP:    196.13.09.157/26 nextRouterIP:    198.84.111.54 Hops:  7 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  5 Dest-IP:   198.84.111.164/21 nextRouterIP:    194.13.114.12 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  6 Dest-IP:    196.13.09.157/20 nextRouterIP:   198.84.234.147 Hops:  4 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  7 Dest-IP:    194.13.114.87/19 nextRouterIP:   196.64.120.127 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  8 Dest-IP:   198.84.234.147/19 nextRouterIP:    194.13.114.87 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  9 Dest-IP:  198.180.234.149/19 nextRouterIP:  198.180.120.214 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  1 Dest-IP:          0.0.0.0/0  nextRouterIP:  123.123.123.123 Hops: 10 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+
+Packet Destined For: 194.11.114.6 was sent to : 0.0.0.0\0!
+
+SN: 13 Dest-IP:   198.84.234.194/28 nextRouterIP:    194.13.88.176 Hops:  5 Last Update Sat Jul 02 18:13:42 PDT 2016 Reachable: true
+SN:  2 Dest-IP:    196.13.09.127/27 nextRouterIP:  198.180.234.250 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  3 Dest-IP:   194.11.214.233/27 nextRouterIP:   194.11.214.233 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  4 Dest-IP:    196.13.09.157/26 nextRouterIP:    198.84.111.54 Hops:  7 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  5 Dest-IP:   198.84.111.164/21 nextRouterIP:    194.13.114.12 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  6 Dest-IP:    196.13.09.157/20 nextRouterIP:   198.84.234.147 Hops:  4 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  7 Dest-IP:    194.13.114.87/19 nextRouterIP:   196.64.120.127 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  8 Dest-IP:   198.84.234.147/19 nextRouterIP:    194.13.114.87 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  9 Dest-IP:  198.180.234.149/19 nextRouterIP:  198.180.120.214 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  1 Dest-IP:          0.0.0.0/0  nextRouterIP:  123.123.123.123 Hops: 10 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+
+Packet Destined For: 198.84.234.147 was sent to : 198.84.234.147\19!
+
+SN: 13 Dest-IP:   198.84.234.194/28 nextRouterIP:    194.13.88.176 Hops:  5 Last Update Sat Jul 02 18:13:42 PDT 2016 Reachable: true
+SN:  2 Dest-IP:    196.13.09.127/27 nextRouterIP:  198.180.234.250 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  3 Dest-IP:   194.11.214.233/27 nextRouterIP:   194.11.214.233 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  4 Dest-IP:    196.13.09.157/26 nextRouterIP:    198.84.111.54 Hops:  7 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  5 Dest-IP:   198.84.111.164/21 nextRouterIP:    194.13.114.12 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  6 Dest-IP:    196.13.09.157/20 nextRouterIP:   198.84.234.147 Hops:  4 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  7 Dest-IP:    194.13.114.87/19 nextRouterIP:   196.64.120.127 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  8 Dest-IP:   198.84.234.147/19 nextRouterIP:    194.13.114.87 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  9 Dest-IP:  198.180.234.149/19 nextRouterIP:  198.180.120.214 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  1 Dest-IP:          0.0.0.0/0  nextRouterIP:  123.123.123.123 Hops: 10 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+
+Packet Destined For: 194.11.214.123 was sent to : 0.0.0.0\0!
+
+UPDATE: Entry From Neighboring Router, 196.13.90.197/22
+
+Aggregating: 196.13.09.157/26 and 196.13.09.157/20
+
+SN: 13 Dest-IP:   198.84.234.194/28 nextRouterIP:    194.13.88.176 Hops:  5 Last Update Sat Jul 02 18:13:42 PDT 2016 Reachable: true
+SN:  2 Dest-IP:    196.13.09.127/27 nextRouterIP:  198.180.234.250 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  3 Dest-IP:   194.11.214.233/27 nextRouterIP:   194.11.214.233 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN: 14 Dest-IP:    196.13.90.197/22 nextRouterIP:     194.13.88.94 Hops:  8 Last Update Sat Jul 02 18:13:45 PDT 2016 Reachable: true
+SN:  5 Dest-IP:   198.84.111.164/21 nextRouterIP:    194.13.114.12 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  6 Dest-IP:    196.13.09.157/20 nextRouterIP:   198.84.234.147 Hops:  4 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  7 Dest-IP:    194.13.114.87/19 nextRouterIP:   196.64.120.127 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  8 Dest-IP:   198.84.234.147/19 nextRouterIP:    194.13.114.87 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  9 Dest-IP:  198.180.234.149/19 nextRouterIP:  198.180.120.214 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  1 Dest-IP:          0.0.0.0/0  nextRouterIP:  123.123.123.123 Hops: 10 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+
+Packet Destined For: 198.180.234.149 was sent to : 198.180.234.149\19!
+
+SN: 13 Dest-IP:   198.84.234.194/28 nextRouterIP:    194.13.88.176 Hops:  5 Last Update Sat Jul 02 18:13:42 PDT 2016 Reachable: true
+SN:  2 Dest-IP:    196.13.09.127/27 nextRouterIP:  198.180.234.250 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  3 Dest-IP:   194.11.214.233/27 nextRouterIP:   194.11.214.233 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN: 14 Dest-IP:    196.13.90.197/22 nextRouterIP:     194.13.88.94 Hops:  8 Last Update Sat Jul 02 18:13:45 PDT 2016 Reachable: true
+SN:  5 Dest-IP:   198.84.111.164/21 nextRouterIP:    194.13.114.12 Hops:  5 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  6 Dest-IP:    196.13.09.157/20 nextRouterIP:   198.84.234.147 Hops:  4 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  7 Dest-IP:    194.13.114.87/19 nextRouterIP:   196.64.120.127 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  8 Dest-IP:   198.84.234.147/19 nextRouterIP:    194.13.114.87 Hops:  3 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  9 Dest-IP:  198.180.234.149/19 nextRouterIP:  198.180.120.214 Hops:  1 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
+SN:  1 Dest-IP:          0.0.0.0/0  nextRouterIP:  123.123.123.123 Hops: 10 Last Update Sat Jul 02 18:13:35 PDT 2016 Reachable: true
